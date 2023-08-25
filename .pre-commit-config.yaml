@@ -1,0 +1,42 @@
+files: vistafetch/|tests/
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.2.0
+    hooks:
+      - id: check-json
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: mixed-line-ending
+      - id: check-docstring-first
+      - id: check-merge-conflict
+
+  - repo: local
+    hooks:
+
+      - id: print_statement
+        name: Check that print is not in the source code
+        types: [ python ]
+        entry: 'print\(.*\)'
+        language: pygrep
+
+      - id: black
+        name: black
+        language: python
+        types: [ python ]
+        entry: black
+        verbose: true
+
+      - id: mypy
+        name: mypy
+        language: python
+        types: [ python ]
+        entry: mypy
+        verbose: true
+
+      - id: ruff
+        name: ruff
+        language: python
+        types: [ python ]
+        entry: ruff
+        verbose: true

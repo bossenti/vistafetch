@@ -1,4 +1,4 @@
-name: "Lint PR titles"
+name: "PR Compliance"
 
 on:
   pull_request_target:

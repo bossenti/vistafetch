@@ -19,5 +19,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          requireScope: false
           scopes: |
             \#[0-9]+

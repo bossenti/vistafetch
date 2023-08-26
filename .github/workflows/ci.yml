@@ -21,9 +21,11 @@ jobs:
                   in-project: true
                   prefer-active-python: true
 
+            - name: Install command runner
+              uses: taiki-e/install-action@just
+
             - name: Install Python dependencies
               run: |
-                  apt install just
                   just poetry-install
 
             - name: Run style & code checks
@@ -56,9 +58,11 @@ jobs:
                   virtualenvs-create: true
                   virtualenvs-in-project: true
 
+            - name: Install command runner
+              uses: taiki-e/install-action@just
+
             - name: Install Python dependencies
               run: |
-                  apt install just
                   just poetry-install
 
             - name: Run unit-tests

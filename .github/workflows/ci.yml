@@ -23,6 +23,7 @@ jobs:
 
             - name: Install Python dependencies
               run: |
+                  apt install just
                   just poetry-install
 
             - name: Run style & code checks
@@ -57,6 +58,7 @@ jobs:
 
             - name: Install Python dependencies
               run: |
+                  apt install just
                   just poetry-install
 
             - name: Run unit-tests

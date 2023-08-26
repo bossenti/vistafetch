@@ -18,5 +18,6 @@ jobs:
       - uses: amannn/action-semantic-pull-request@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        scopes: |
-          \#[0-9]+
+        with:
+          scopes: |
+            \#[0-9]+

@@ -16,9 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: amannn/action-semantic-pull-request@v5.1.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           requireScope: false
           scopes: |
             \#[0-9]+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

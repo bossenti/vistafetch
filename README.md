@@ -1,7 +1,7 @@
 <h1 align="center">
   <br>
    <img src="./docs/img/vistafetch.png"
-   alt="StreamPipes Logo with Python" title="Apache StreamPipes Logo with Python" width=50%"/>
+   alt="StreamPipes Logo with Python" title="Apache StreamPipes Logo with Python" width=30%"/>
     <br>VistaFetch
   <br>
 </h1>

@@ -1,11 +1,37 @@
 <h1 align="center">
   <br>
-   <img src="./docs/img/vistafetch.png"
-   alt="StreamPipes Logo with Python" title="Apache StreamPipes Logo with Python" width=30%"/>
+   <img src="https://github.com/bossenti/vistafetch/blob/main/docs/img/vistafetch.png?raw=true"
+   alt="VistaFetch Logo" title="VistaFetch Logo" width=40%"/>
     <br>VistaFetch
   <br>
 </h1>
 <h4 align="center">VistaFetch is a simple and lightweight Python library for financial asset data retrieval (stocks, ETFs, etc.) from onvista.de.</h4>
+<p align="center">
+<a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">
+    <img src="https://img.shields.io/github/license/apache/streampipes.svg" alt="License Apache 2.0">
+</a>
+<a href="https://github.com/bossenti/vistafetch/actions/workflows/ci.yml" target="blank">
+    <img src="https://github.com/bossenti/vistafetch/actions/workflows/ci.yml/badge.svg" alt="Continuous Integration status"> 
+</a>
+<a href="https://github.com/psf/black" target="_blank">
+    <img src="https://img.shields.io/badge/code%20style-black-black" alt="Code Style: Black">
+</a>
+<a href="https://github.com/python/mypy" target="_blank">
+    <img src="https://img.shields.io/badge/typed-mypy-blue" alt="Typed: MyPy">
+</a>
+<a href="https://beta.ruff.rs/docs/" target="_blank">
+    <img src="https://img.shields.io/badge/linting-ruff-yellow" alt="Linting: Ruff">
+</a>
+<a href="https://python-poetry.org" target="_blank">
+    <img src="https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json" alt="Dependency & Build Management: Poetry">
+</a>
+<a href="https://pre-commit.com/" target="_blank">
+    <img src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white" alt="pre-commit">
+</a>
+<a href="https://pydantic.dev" target="_blank">
+    <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/pydantic/pydantic/main/docs/badge/v2.json" alt="Pydantic v2">
+</a>
+</p>
 
 > [!WARNING]  
 > The API used by this package is not public. Therefore, users should assume that using this package may violate the site's terms of use.

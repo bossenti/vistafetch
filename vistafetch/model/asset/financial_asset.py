@@ -3,7 +3,6 @@ from abc import ABC
 from functools import cached_property
 from typing import Literal
 
-from pydantic import computed_field
 from requests import HTTPError
 
 from vistafetch.constants import ONVISTA_API_BASE_URL
@@ -79,7 +78,6 @@ class FinancialAsset(VistaEntity, ABC):
 
         return PriceData.model_validate(response_dict["quote"])
 
-    @computed_field  # type: ignore
     @cached_property
     def price_data(self) -> PriceData:
         """Get the price data available for this financial asset."""

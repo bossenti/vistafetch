@@ -1,7 +1,7 @@
 <h1 align="center">
   <br>
-   <img src="https://github.com/bossenti/vistafetch/blob/main/docs/img/vistafetch.png?raw=true"
-   alt="VistaFetch Logo" title="VistaFetch Logo" width=40%"/>
+   <img src="https://github.com/bossenti/vistafetch/blob/main/docs/img/vistafetch.png"
+   alt="VistaFetch Logo" title="VistaFetch Logo" width=30%"/>
     <br>VistaFetch
   <br>
 </h1>

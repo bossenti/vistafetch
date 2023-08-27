@@ -17,7 +17,7 @@ class Fund(FinancialAsset):
     assets, such as stocks, bonds, real estate, and commodities.
     This comprises various types of investment funds,
     including mutual funds, exchange-traded funds (ETFs),
-    and hedge funds, each with its own investment strategy and risk profile
+    and hedge funds, each with its own investment strategy and risk profile.
 
     """
 

@@ -41,7 +41,6 @@ class FinancialAsset(VistaEntity, ABC):
         for the purposes of facilitating clearing, reporting,
         and settlement of trades.)
     name: full name of the financial asset
-    symbol: symbol of the financial asset as used by the API
     tiny_name: short name of the financial asset, preferably useful as display name
     wkn: WKN code of the financial asset (The 'Wertpapierkennnummer' (WKN) is a
         German securities identification code.)
@@ -54,7 +53,6 @@ class FinancialAsset(VistaEntity, ABC):
     entity_type: Literal[_type.value]  # type: ignore
     isin: str
     name: str
-    symbol: str
     tiny_name: str
     wkn: str
 

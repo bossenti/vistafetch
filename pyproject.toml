@@ -72,6 +72,7 @@ ignore = [
 "tests/**/*" = ["D100","D101", "D102", "D103", "D104"]
 "tests/test_client.py" = ["I001"]
 "vistafetch/client.py" = ["I001"]
+"vistafetch/model/asset/__init__.py" = ["I001"]
 
 
 [build-system]

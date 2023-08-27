@@ -141,3 +141,18 @@ Once you implemented your changes, please run the following commands:
 just pretty   # formats the code and applies automatic linting fixes
 just check  # checks code for conformance
 ```
+
+### Opening PR
+
+Please be aware that this repository follows [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/).
+So please choose a PR title corresponding to the following:
+```bash
+<scope>(#<IssueID>): <description>  # supported scopes can be found here: https://github.com/commitizen/conventional-commit-types/blob/master/index.json
+
+# e.g.
+docs(#8): provide extensive project readme
+
+# issue id is optional, so the following si valid as well
+docs: provide extensive project readme
+```
+

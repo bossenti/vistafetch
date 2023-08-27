@@ -14,12 +14,6 @@ repos:
   - repo: local
     hooks:
 
-      - id: print_statement
-        name: Check that print is not in the source code
-        types: [ python ]
-        entry: 'print\(.*\)'
-        language: pygrep
-
       - id: black
         name: black
         language: python

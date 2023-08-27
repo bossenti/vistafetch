@@ -6,7 +6,7 @@ from pydantic import Field
 from rich.console import Console
 from rich.table import Table
 
-from vistafetch.model.asset import Fund, Stock
+from vistafetch.model.asset import Bond, Fund, Index, PreciousMetal, Stock
 from vistafetch.model.asset.financial_asset import FinancialAsset
 from vistafetch.model.base import VistaEntity
 
@@ -29,7 +29,9 @@ class SearchResult(VistaEntity):
     """
 
     expires: datetime
-    assets: List[Union[Fund, Stock]] = Field(alias="list", discriminator="entity_type")
+    assets: List[Union[Bond, Fund, Index, PreciousMetal, Stock]] = Field(
+        alias="list", discriminator="entity_type"
+    )
     search_value: str
 
     def get(self, index: int = 0) -> FinancialAsset:

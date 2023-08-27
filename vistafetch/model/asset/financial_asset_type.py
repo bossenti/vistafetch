@@ -22,5 +22,6 @@ class FinancialAssetType(Enum):
     BOND = "BOND"
     FUND = "FUND"
     INDEX = "INDEX"
+    METAL = "PRECIOUS_METAL"
     STOCK = "STOCK"
     UNKNOWN = None

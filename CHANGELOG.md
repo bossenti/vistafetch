@@ -10,6 +10,8 @@
 
 ### Ci
 
+* ci: add additional permission for release workflow (#25) ([`a027f5e`](https://github.com/bossenti/vistafetch/commit/a027f5ec40f27504016c1080ffba5312f1abf748))
+
 * ci: extend permissions for release workflow (#24) ([`7ed7147`](https://github.com/bossenti/vistafetch/commit/7ed71473e82761e4b677cab2bad033b95b6ac3f4))
 
 * ci: fix indentation of release workflow (#23) ([`6aec22b`](https://github.com/bossenti/vistafetch/commit/6aec22bae18bdd89f54fcf161e6d044295950b9f))

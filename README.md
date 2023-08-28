@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-   <img src="https://github.com/bossenti/vistafetch/blob/main/docs/img/vistafetch.png"
+   <img src="https://github.com/bossenti/vistafetch/blob/main/docs/img/vistafetch.png?raw=true"
    alt="VistaFetch Logo" title="VistaFetch Logo" width=30%"/>
     <br>VistaFetch
   <br>
@@ -20,7 +20,7 @@
     <img src="https://img.shields.io/badge/typed-mypy-blue" alt="Typed: MyPy">
 </a>
 <a href="https://beta.ruff.rs/docs/" target="_blank">
-    <img src="https://img.shields.io/badge/linting-ruff-yellow" alt="Linting: Ruff">
+    <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" alt="Linting: Ruff">
 </a>
 <a href="https://python-poetry.org" target="_blank">
     <img src="https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json" alt="Dependency & Build Management: Poetry">

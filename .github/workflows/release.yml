@@ -1,6 +1,9 @@
 name: Release
 
-on: workflow_dispatch
+on:
+  push:
+    tags:
+      - "v*"
 
 jobs:
   release:
@@ -8,27 +11,51 @@ jobs:
     concurrency: release
 
     steps:
-      # the checkout action persists the passed credentials by default
-      # subsequent git commands will pick them up automatically
       - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          token: ${{secrets.PAT}}
+          python-version: 3.8
 
-      # This action uses Python Semantic Release v8
-      - name: Python Semantic Release
-        id: release
-        uses: python-semantic-release/python-semantic-release@v8.0.8
+      - name: Install and configure Poetry
+        uses: snok/install-poetry@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          version: 1.6.1
+          in-project: true
+          prefer-active-python: true
 
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@github.com"
 
-      - name: Publish package distributions to PyPI
+      - name: Install dependencies
+        working-directory: ./streampipes-client-python
+        run: |
+          poetry install --with deployment,docs --all-extras
+
+      - name: Bump package version and push change
+        run: |
+          poetry version "${$(${GITHUB_REF#refs/*/}):1}"
+          git add pyproject.toml
+          git commit -m "Bump version to ${GITHUB_REF#refs/*/} [skip ci]"
+          git push origin develop
+
+      - name: Build package
+        run: |
+          poetry build
+          twine check --strict dist/*
+
+      - name: Publish package
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           user: __token__
           password: ${{ secrets.PYPI_TOKEN }}
 
-      - name: Publish package distributions to GitHub Releases
-        uses: python-semantic-release/upload-to-gh-release@main
+      - name: Publish Github release
+        uses: softprops/action-gh-release@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          files: dist/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

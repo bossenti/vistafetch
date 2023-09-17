@@ -74,11 +74,6 @@ ignore = [
 "vistafetch/client.py" = ["I001"]
 "vistafetch/model/asset/__init__.py" = ["I001"]
 
-[tool.semantic_release]
-version_toml = ["pyproject.toml:tool.poetry.version"]
-branch = "main"
-build_command = "pip install poetry==1.6.1 && poetry build"
-
 
 [build-system]
 requires = ["poetry-core"]

@@ -33,12 +33,9 @@ jobs:
         run: |
           poetry install --with dev --all-extras
 
-      - name: Bump package version and push change
+      - name: Set Package Version
         run: |
           poetry version ${GITHUB_REF#refs/*/}
-          git add pyproject.toml
-          git commit -m "Bump version to ${GITHUB_REF#refs/*/} [skip ci]"
-          git push origin
 
       - name: Build package
         run: |

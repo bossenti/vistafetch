@@ -1,0 +1,21 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    labels:
+      - "ci/cd"
+      - "dependencies"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "deps: "
+
+  - package-ecosystem: "pip"
+    directory: "/"
+    labels:
+      - "dependencies"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "deps: "
+      include: "scope"

@@ -16,7 +16,7 @@ jobs:
 
       - name: Adapt git config
         run: |
-          git config --global --add safe.directory *
+          git config --global --add safe.directory '*'
 
       # This action uses Python Semantic Release v8
       - name: Python Semantic Release

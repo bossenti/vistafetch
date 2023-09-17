@@ -35,7 +35,8 @@ jobs:
 
       - name: Bump package version and push change
         run: |
-          poetry version "${$(${GITHUB_REF#refs/*/}):1}"
+          export TAG_NAME=${GITHUB_REF#refs/*/}
+          poetry version "${$(echo $TAG_NAME):1}"
           git add pyproject.toml
           git commit -m "Bump version to ${GITHUB_REF#refs/*/} [skip ci]"
           git push origin develop

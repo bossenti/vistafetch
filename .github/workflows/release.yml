@@ -22,8 +22,7 @@ jobs:
         uses: snok/install-poetry@v1
         with:
           version: 1.6.1
-          in-project: true
-          prefer-active-python: true
+          virtualenvs-in-project: true
 
       - name: Configure Git
         run: |
@@ -31,9 +30,8 @@ jobs:
           git config user.email "github-actions@github.com"
 
       - name: Install dependencies
-        working-directory: ./streampipes-client-python
         run: |
-          poetry install --with deployment,docs --all-extras
+          poetry install --with dev --all-extras
 
       - name: Bump package version and push change
         run: |

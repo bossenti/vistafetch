@@ -13,6 +13,12 @@
 <a href="https://github.com/bossenti/vistafetch/actions/workflows/ci.yml" target="blank">
     <img src="https://github.com/bossenti/vistafetch/actions/workflows/ci.yml/badge.svg" alt="Continuous Integration status"> 
 </a>
+<a href="https://pypi.org/project/vistafetch/" target="blank">
+    <img src="https://img.shields.io/pypi/v/vistafetch" alt="PyPI released version"> 
+</a>
+<a href="https://pypi.org/project/vistafetch/" target="blank">
+    <img src="https://img.shields.io/pypi/pyversions/vistafetch" alt="PyPI supported Python versions"> 
+</a>
 <a href="https://github.com/psf/black" target="_blank">
     <img src="https://img.shields.io/badge/code%20style-black-black" alt="Code Style: Black">
 </a>

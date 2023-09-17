@@ -27,6 +27,7 @@ jobs:
             refactor
             perf
             test
+            deps
             (deps)
             (deps-dev)
             ci

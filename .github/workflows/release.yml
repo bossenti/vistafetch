@@ -10,13 +10,9 @@ jobs:
     steps:
       # the checkout action persists the passed credentials by default
       # subsequent git commands will pick them up automatically
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{secrets.PAT}}
-
-      - name: Adapt git config
-        run: |
-          git config --global --add safe.directory '*'
 
       # This action uses Python Semantic Release v8
       - name: Python Semantic Release

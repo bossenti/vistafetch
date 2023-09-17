@@ -31,7 +31,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          poetry install --with dev --all-extras
+          poetry install --with dev,release --all-extras
 
       - name: Set Package Version
         run: |

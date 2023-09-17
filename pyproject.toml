@@ -60,6 +60,12 @@ pytest-cov = "4.1.0"
 ruff = "0.0.285"
 types-requests = "2.31.0.2"
 
+[tool.poetry.group.release]
+optional = true
+
+[tool.poetry.group.release.dependencies]
+twine = "4.0.2"
+
 [tool.ruff]
 select = ["C90", "D", "E", "F", "I", "ICN", "N", "PL", "UP"]
 ignore = [

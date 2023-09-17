@@ -19,5 +19,18 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          types: |
+            feat
+            fix
+            docs
+            style
+            refactor
+            perf
+            test
+            (deps)
+            (deps-dev)
+            ci
+            chore
+            revert
           scopes: |
             \#[0-9]+

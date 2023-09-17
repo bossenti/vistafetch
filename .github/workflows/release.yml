@@ -14,35 +14,6 @@ jobs:
         with:
           token: ${{secrets.PAT}}
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.8
-
-      - name: Install and configure Poetry
-        uses: snok/install-poetry@v1
-        with:
-          version: 1.6.1
-          in-project: true
-          prefer-active-python: true
-
-      - name: Calculate Semantic Version
-        uses: registry.gitlab.com/juhani/go-semrel-gitlab:v0.21.1
-        env:
-          GSG_PATCH_COMMIT_TYPES: "fix,refactor,test,ci,revert"  # see explanations: https://github.com/commitizen/conventional-commit-types/blob/master/index.json
-          GSG_MINOR_COMMIT_TYPES: "feat"
-          GSG_INITIAL_DEVELOPMENT: true
-          GSG_BUMP_PATCH: true
-        run:
-          - release next-version > .next-version
-          - cat .next-version
-
-      - name: Build Library Wheel
-        run: |
-          poetry version $(cat .next_version)
-          poetry build
-          twine check --strict dist/*
-
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:

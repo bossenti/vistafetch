@@ -4,7 +4,11 @@ from unittest.mock import MagicMock, patch
 
 from requests import Response
 
-from tests.test_utils.requests_utils import mock_api_call
+from tests.test_utils.requests_utils import (
+    EXPECTED_PRICE_DATA_CURRENCY,
+    EXPECTED_PRICE_DATA_LAST,
+    mock_api_call,
+)
 from vistafetch.model import Fund
 from vistafetch.model.asset import PriceData
 from vistafetch.model.asset.financial_asset import FinancialAsset
@@ -78,8 +82,8 @@ class TestFinancialAsset(TestCase):
         result = Fund.model_validate(test_input).price_data
 
         self.assertTrue(isinstance(result, PriceData))
-        self.assertEqual("EUR", result.currency_symbol)
-        self.assertEqual(7.09, result.last)
+        self.assertEqual(EXPECTED_PRICE_DATA_CURRENCY, result.currency_symbol)
+        self.assertEqual(EXPECTED_PRICE_DATA_LAST, result.last)
         self.assertEqual(
             datetime(
                 year=2023,

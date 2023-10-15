@@ -4,7 +4,7 @@ autoflake:
 
 # apply code formatting with black
 black:
-    poetry run black vistafetch tests  -t py38 -t py39 -t py310 -t py311
+    poetry run black vistafetch tests  -t py38 -t py39 -t py310 -t py311 -t py312
 
 # run static type checking with mypy
 mypy:

@@ -4,7 +4,11 @@ from unittest.mock import MagicMock, patch
 
 from requests import Response
 
-from tests.test_utils.requests_utils import mock_api_call, EXPECTED_PRICE_DATA_LAST, EXPECTED_PRICE_DATA_CURRENCY
+from tests.test_utils.requests_utils import (
+    EXPECTED_PRICE_DATA_CURRENCY,
+    EXPECTED_PRICE_DATA_LAST,
+    mock_api_call,
+)
 from vistafetch.model import Fund
 from vistafetch.model.asset import PriceData
 from vistafetch.model.asset.financial_asset import FinancialAsset

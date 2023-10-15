@@ -6,7 +6,6 @@ from vistafetch.model.asset import PriceData
 
 
 class TestPriceData(TestCase):
-
     def test_datetime_validator_add_timezone(self):
         result = PriceData.model_validate(EXPECTED_PRICE_DATA)
 

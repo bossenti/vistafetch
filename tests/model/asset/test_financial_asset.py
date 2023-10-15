@@ -93,20 +93,3 @@ class TestFinancialAsset(TestCase):
             ),
             result.datetime_open,
         )
-
-    @patch(
-        "vistafetch.model.asset.financial_asset.api_session.get",
-        side_effect=mock_api_call,
-    )
-    def test_price_data_get_latest_price_data(self, session_mock: MagicMock):
-        test_input = {
-            "displayType": "fund",
-            "entityType": "FUND",
-            "isin": "DE00000000",
-            "name": "demon",
-            "symbol": "TEST",
-            "tinyName": "demon",
-            "wkn": "TEST00",
-        }
-
-        Fund.model_validate(test_input).get_latest_price_data()

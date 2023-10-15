@@ -134,7 +134,11 @@ class TestFinancialAsset(TestCase):
             "wkn": "TEST00",
         }
 
-        result = Fund.model_validate(test_input).get_day_price_data(day=datetime.today())
+        result = Fund.model_validate(test_input).get_day_price_data(
+            day=datetime.today()
+        )
         self.assertTrue(isinstance(result, PriceData))
-        self.assertEqual(datetime(year=2023, month=10, day=13, hour=14), result.datetime_high)
+        self.assertEqual(
+            datetime(year=2023, month=10, day=13, hour=14), result.datetime_high
+        )
         self.assertEqual(EXPECTED_PRICE_DATA_LAST, result.last)

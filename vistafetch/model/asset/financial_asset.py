@@ -29,6 +29,7 @@ class FinancialAssetMarket(VistaEntity):
     id_notation: identifier of the market identifier
 
     """
+
     id_notation: int
 
 
@@ -72,7 +73,7 @@ class FinancialAsset(VistaEntity, ABC):
     wkn: str
     market: FinancialAssetMarket | None = Field(default=None)
 
-    def __query_day_price_data(self, day: datetime.date) -> PriceData | None:
+    def __query_day_price_data(self, day: datetime.date) -> PriceData:
         if self._type == FinancialAssetType.UNKNOWN:
             raise NotImplementedError(
                 "`price_data` is called directly on the "
@@ -81,14 +82,8 @@ class FinancialAsset(VistaEntity, ABC):
             )
 
         response = api_session.get(
-            f"{ONVISTA_API_BASE_URL}instruments/{self.entity_type}/ISIN:{self.isin}/eod_history?idNotation={self.market.id_notation}&range=D1&startDate={day.year}-{day.month}-{day.day}"
+            f"{ONVISTA_API_BASE_URL}instruments/{self.entity_type}/ISIN:{self.isin}/eod_history?idNotation={self.market.id_notation}&range=D1&startDate={day.year}-{day.month}-{day.day}"  # type: ignore
         )
-
-        try:
-            response.raise_for_status()
-        except HTTPError as e:
-            logger.warning(f"API has returned an error when querying price data for {day}: {e}")
-            return None
 
         price_raw = response.json()
 
@@ -101,7 +96,7 @@ class FinancialAsset(VistaEntity, ABC):
             high=price_raw["high"][0],
             last=price_raw["last"][0],
             low=price_raw["low"][0],
-            open=price_raw["first"][0]
+            open=price_raw["first"][0],
         )
 
     def __query_latest_price_data(self) -> PriceData:
@@ -125,7 +120,9 @@ class FinancialAsset(VistaEntity, ABC):
                 f"API response does not contain expected data: {response_dict}"
             )
 
-        self.market = FinancialAssetMarket.model_validate(response_dict["quote"]["market"])
+        self.market = FinancialAssetMarket.model_validate(
+            response_dict["quote"]["market"]
+        )
 
         return PriceData.model_validate(response_dict["quote"])
 
@@ -136,7 +133,6 @@ class FinancialAsset(VistaEntity, ABC):
 
     def get_day_price_data(self, day: datetime.date) -> PriceData:
         """Get the price data for this financial asset for a specific day."""
-
         # check if market information are available
         # if not we need to make an additional API call
         if self.market is None:

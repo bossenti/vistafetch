@@ -1,4 +1,3 @@
-import datetime
 from http import HTTPStatus
 from typing import Optional
 
@@ -21,9 +20,7 @@ EXPECTED_PRICE_DATA = {
     "datetimeLow": "2023-08-25T15:07:10.000+00:00",
     "high": EXPECTED_PRICE_DATA_HIGH,
     "datetimeLast": "2023-08-25T15:35:10.000+00:00",
-    "market": {
-        "idNotation": 163500
-    }
+    "market": {"idNotation": 163500},
 }
 EXPECTED_PRICE_DATA_DAY = {
     "isoCurrency": EXPECTED_PRICE_DATA_CURRENCY,

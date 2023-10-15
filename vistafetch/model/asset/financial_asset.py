@@ -1,8 +1,11 @@
 """Model a financial asset in the context of this library."""
+import datetime
+import logging
 from abc import ABC
 from functools import cached_property
 from typing import Literal
 
+from pydantic import Field
 from requests import HTTPError
 
 from vistafetch.constants import ONVISTA_API_BASE_URL
@@ -14,6 +17,19 @@ from vistafetch.session import api_session
 __all__ = [
     "FinancialAsset",
 ]
+
+logger = logging.getLogger(__name__)
+
+
+class FinancialAssetMarket(VistaEntity):
+    """Market-related information of a financial asset.
+
+    Attributes
+    ----------
+    id_notation: identifier of the market identifier
+
+    """
+    id_notation: int
 
 
 class FinancialAsset(VistaEntity, ABC):
@@ -54,8 +70,41 @@ class FinancialAsset(VistaEntity, ABC):
     name: str
     tiny_name: str
     wkn: str
+    market: FinancialAssetMarket | None = Field(default=None)
 
-    def __query_price_data(self) -> PriceData:
+    def __query_day_price_data(self, day: datetime.date) -> PriceData | None:
+        if self._type == FinancialAssetType.UNKNOWN:
+            raise NotImplementedError(
+                "`price_data` is called directly on the "
+                "abstract class `Financial Asset`. "
+                "Please use a valid financial asset class."
+            )
+
+        response = api_session.get(
+            f"{ONVISTA_API_BASE_URL}instruments/{self.entity_type}/ISIN:{self.isin}/eod_history?idNotation={self.market.id_notation}&range=D1&startDate={day.year}-{day.month}-{day.day}"
+        )
+
+        try:
+            response.raise_for_status()
+        except HTTPError as e:
+            logger.warning(f"API has returned an error when querying price data for {day}: {e}")
+            return None
+
+        price_raw = response.json()
+
+        return PriceData.model_construct(
+            currency_symbol=price_raw["isoCurrency"],
+            datetime_high=datetime.datetime.fromtimestamp(price_raw["datetimeLast"][0]),
+            datetime_last=datetime.datetime.fromtimestamp(price_raw["datetimeLast"][0]),
+            datetime_low=datetime.datetime.fromtimestamp(price_raw["datetimeLast"][0]),
+            datetime_open=datetime.datetime.fromtimestamp(price_raw["datetimeLast"][0]),
+            high=price_raw["high"][0],
+            last=price_raw["last"][0],
+            low=price_raw["low"][0],
+            open=price_raw["first"][0]
+        )
+
+    def __query_latest_price_data(self) -> PriceData:
         if self._type == FinancialAssetType.UNKNOWN:
             raise NotImplementedError(
                 "`price_data` is called directly on the "
@@ -76,12 +125,24 @@ class FinancialAsset(VistaEntity, ABC):
                 f"API response does not contain expected data: {response_dict}"
             )
 
+        self.market = FinancialAssetMarket.model_validate(response_dict["quote"]["market"])
+
         return PriceData.model_validate(response_dict["quote"])
 
     @cached_property
     def price_data(self) -> PriceData:
         """Get the price data available for this financial asset."""
-        return self.__query_price_data()
+        return self.__query_latest_price_data()
+
+    def get_day_price_data(self, day: datetime.date) -> PriceData:
+        """Get the price data for this financial asset for a specific day."""
+
+        # check if market information are available
+        # if not we need to make an additional API call
+        if self.market is None:
+            self.__query_latest_price_data()
+
+        return self.__query_day_price_data(day)
 
     def get_latest_price_data(self) -> PriceData:
         """Get the latest available price data for this financial asset."""

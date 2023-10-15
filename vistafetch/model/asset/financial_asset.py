@@ -82,3 +82,7 @@ class FinancialAsset(VistaEntity, ABC):
     def price_data(self) -> PriceData:
         """Get the price data available for this financial asset."""
         return self.__query_price_data()
+
+    def get_latest_price_data(self) -> PriceData:
+        """Get the latest available price data for this financial asset."""
+        return self.price_data

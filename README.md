@@ -148,7 +148,7 @@ sap_stock = result.get()
 
 ## 🐛 Facing problems
 Feel free to open an [issue](https://github.com/bossenti/vistafetch/issues/new) if you experience strange behavior or bugs when using `vistafetch`. <br>
-If you are not sure if your problem should be considered a bug or if you have a question in general, reach out via [disussions](https://github.com/bossenti/vistafetch/discussions).
+If you are not sure if your problem should be considered a bug or if you have a question in general, reach out via [discussions](https://github.com/bossenti/vistafetch/discussions).
 
 
 ## 💻 Contributing

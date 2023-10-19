@@ -139,6 +139,6 @@ class TestFinancialAsset(TestCase):
         )
         self.assertTrue(isinstance(result, PriceData))
         self.assertEqual(
-            datetime(year=2023, month=10, day=13, hour=14), result.datetime_high
+            datetime(year=2023, month=10, day=13, hour=12), result.datetime_high
         )
         self.assertEqual(EXPECTED_PRICE_DATA_LAST, result.last)

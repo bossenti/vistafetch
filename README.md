@@ -130,8 +130,8 @@ asset.get_latest_price_data().last
 
 <br>
 
-> [!NOTE]  
-> Price data are currently only supported for funds and stocks.
+> [!WARNING]  
+> Price data are currently not supported for indexes.
 > Feel free to send me a feature request if you'd like to see this feature
 > supported for other asset types as well: https://github.com/bossenti/vistafetch/issues/new.
 > As an alternative, contributions are welcome at any time.

@@ -35,4 +35,4 @@ pretty: autoflake ruff black
 
 # run all unit tests
 unit-tests:
-	poetry run pytest --cov=vistafetch --cov-fail-under=90 --cov-report term-missing:skip-covered --no-cov-on-fail tests/
+    export TZ="UTC"; poetry run pytest --cov=vistafetch --cov-fail-under=90 --cov-report term-missing:skip-covered --no-cov-on-fail tests/

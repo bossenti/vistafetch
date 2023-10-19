@@ -79,7 +79,8 @@ class TestFinancialAsset(TestCase):
             "wkn": "TEST00",
         }
 
-        result = Fund.model_validate(test_input).price_data
+        fund = Fund.model_validate(test_input)
+        result = fund.price_data
 
         self.assertTrue(isinstance(result, PriceData))
         self.assertEqual(EXPECTED_PRICE_DATA_CURRENCY, result.currency_symbol)
@@ -97,3 +98,47 @@ class TestFinancialAsset(TestCase):
             ),
             result.datetime_open,
         )
+        self.assertIsNotNone(fund.market.id_notation)
+
+    @patch(
+        "vistafetch.model.asset.financial_asset.api_session.get",
+        side_effect=mock_api_call,
+    )
+    def test_price_data_get_latest_price_data(self, session_mock: MagicMock):
+        test_input = {
+            "displayType": "fund",
+            "entityType": "FUND",
+            "isin": "DE00000000",
+            "name": "demon",
+            "symbol": "TEST",
+            "tinyName": "demon",
+            "wkn": "TEST00",
+        }
+
+        result = Fund.model_validate(test_input).get_latest_price_data()
+        self.assertEqual(EXPECTED_PRICE_DATA_CURRENCY, result.currency_symbol)
+        self.assertEqual(EXPECTED_PRICE_DATA_LAST, result.last)
+
+    @patch(
+        "vistafetch.model.asset.financial_asset.api_session.get",
+        side_effect=mock_api_call,
+    )
+    def test_price_data_get_one_day_price_data(self, session_mock: MagicMock):
+        test_input = {
+            "displayType": "fund",
+            "entityType": "FUND",
+            "isin": "DE00000000",
+            "name": "demon",
+            "symbol": "TEST",
+            "tinyName": "demon",
+            "wkn": "TEST00",
+        }
+
+        result = Fund.model_validate(test_input).get_day_price_data(
+            day=datetime.today()
+        )
+        self.assertTrue(isinstance(result, PriceData))
+        self.assertEqual(
+            datetime(year=2023, month=10, day=13, hour=12), result.datetime_high
+        )
+        self.assertEqual(EXPECTED_PRICE_DATA_LAST, result.last)

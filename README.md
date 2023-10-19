@@ -104,7 +104,7 @@ DE0007164600
 
 As a final step, the asset provides some recent price-related data:
 ```python
-print(asset.price_data.as_json())
+print(asset.get_latest_price_data().as_json())
 ```
 ```bash
 {
@@ -119,6 +119,16 @@ print(asset.price_data.as_json())
   "open":126.2,
 }
 ```
+
+In addition, you directly access the individual values, e.g., price value `last`:
+```python
+asset.get_latest_price_data().last
+```
+```bash
+126.16
+```
+
+<br>
 
 > [!NOTE]  
 > Price data are currently only supported for funds and stocks.

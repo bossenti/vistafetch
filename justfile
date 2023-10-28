@@ -3,8 +3,8 @@ autoflake:
     poetry run autoflake -r vistafetch tests
 
 # apply code formatting with black
-black:
-    poetry run black vistafetch tests  -t py38 -t py39 -t py310 -t py311 -t py312
+format:
+    poetry run ruff format vistafetch tests
 
 # run static type checking with mypy
 mypy:
@@ -23,7 +23,7 @@ poetry-install:
     poetry install --with dev --all-extras
 
 # run a check (ideally before comitting)
-check: autoflake black mypy
+check: autoflake format mypy
     poetry run ruff check vistafetch/ tests/
 
 # run pre-commit check
@@ -31,7 +31,7 @@ pre-commit:
 	git ls-files -- 'vistafetch/**/*' | xargs poetry run pre-commit run --verbose --files
 
 # prettify your code (linting & formatting is applied)
-pretty: autoflake ruff black
+pretty: autoflake ruff format
 
 # run all unit tests
 unit-tests:

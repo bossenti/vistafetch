@@ -19,9 +19,6 @@
 <a href="https://pypi.org/project/vistafetch/" target="blank">
     <img src="https://img.shields.io/pypi/pyversions/vistafetch" alt="PyPI supported Python versions"> 
 </a>
-<a href="https://github.com/psf/black" target="_blank">
-    <img src="https://img.shields.io/badge/code%20style-black-black" alt="Code Style: Black">
-</a>
 <a href="https://github.com/python/mypy" target="_blank">
     <img src="https://img.shields.io/badge/typed-mypy-blue" alt="Typed: MyPy">
 </a>

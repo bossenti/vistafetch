@@ -11,7 +11,6 @@ __all__ = [
 
 def set_up_logging(logging_level: Optional[int] = None) -> None:
     """Configure logging."""
-
     if logging_level is None:
         logging_level = logging.INFO
     log_format = "%(message)s"

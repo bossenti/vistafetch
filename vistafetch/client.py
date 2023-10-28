@@ -24,7 +24,11 @@ class VistaFetchClient:
         client_headers: additional headers to be sent with every request, optional
     """
 
-    def __init__(self, client_headers: Optional[Dict[str, str]] = None, logging_level: Optional[int] = None):
+    def __init__(
+        self,
+        client_headers: Optional[Dict[str, str]] = None,
+        logging_level: Optional[int] = None,
+    ):
         set_up_logging(logging_level=logging_level)
 
         http_headers = {"Application": "application/json; charset=utf-8"}

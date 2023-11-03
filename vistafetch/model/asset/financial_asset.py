@@ -82,10 +82,17 @@ class FinancialAsset(VistaEntity, ABC):
             )
 
         response = api_session.get(
-            f"{ONVISTA_API_BASE_URL}instruments/{self.entity_type}/ISIN:{self.isin}/eod_history?idNotation={self.market.id_notation}&range=D1&startDate={day.year}-{day.month}-{day.day}"  # type: ignore
+            f"{ONVISTA_API_BASE_URL}instruments/{self.entity_type}/ISIN:{self.isin}/eod_history?idNotation={self.market.id_notation}&range=D1&startDate={day.year}-{day.month}-{day.day}"
+            # type: ignore
         )
 
         price_raw = response.json()
+
+        if len(price_raw["datetimeLast"]) == 0:
+            return PriceData.model_construct(
+                currency_symbol=None, datetime_high=None, datetime_last=None, datetime_low=None,
+                datetime_open=None, high=None, last=None, low=None, open=None
+            )
 
         return PriceData.model_construct(
             currency_symbol=price_raw["isoCurrency"],

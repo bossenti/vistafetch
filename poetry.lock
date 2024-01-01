@@ -1192,13 +1192,13 @@ urllib3 = ">=1.26.0"
 
 [[package]]
 name = "types-requests"
-version = "2.31.0.10"
+version = "2.31.0.20231231"
 description = "Typing stubs for requests"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "types-requests-2.31.0.10.tar.gz", hash = "sha256:dc5852a76f1eaf60eafa81a2e50aefa3d1f015c34cf0cba130930866b1b22a92"},
-    {file = "types_requests-2.31.0.10-py3-none-any.whl", hash = "sha256:b32b9a86beffa876c0c3ac99a4cd3b8b51e973fb8e3bd4e0a6bb32c7efad80fc"},
+    {file = "types-requests-2.31.0.20231231.tar.gz", hash = "sha256:0f8c0c9764773384122813548d9eea92a5c4e1f33ed54556b508968ec5065cee"},
+    {file = "types_requests-2.31.0.20231231-py3-none-any.whl", hash = "sha256:2e2230c7bc8dd63fa3153c1c0ae335f8a368447f0582fc332f17d54f88e69027"},
 ]
 
 [package.dependencies]
@@ -1270,4 +1270,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8, <3.13"
-content-hash = "2ddd4d12c9512bc149237a8b0a0297fce679c51581e5b868b2e25d54d9da7bad"
+content-hash = "4611c6a648c0e706cbf4d641ee2e245fed06c551e7741c053cb90c311911efec"

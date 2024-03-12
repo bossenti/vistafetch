@@ -55,6 +55,7 @@ class VistaEntity(BaseModel):
         Returns
         -------
             model_json: The model instance represented as JSON string
+
         """
         # By default, Pydantic includes additional parameters as well in the JSON dump
         # https://github.com/pydantic/pydantic/issues/6150
@@ -73,5 +74,6 @@ class VistaEntity(BaseModel):
         Returns
         -------
             extra: dictionary containing additional data.
+
         """
         return self.model_extra if self.model_extra else {}

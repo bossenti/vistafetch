@@ -71,6 +71,7 @@ class SearchResult(VistaEntity):
         Returns
         -------
             None
+
         """
         console = Console()
 

@@ -22,6 +22,7 @@ class VistaFetchClient:
     Args:
     ----
         client_headers: additional headers to be sent with every request, optional
+
     """
 
     def __init__(

@@ -13,16 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
         with:
-          python-version: 3.8
-
-      - name: Install and configure Poetry
-        uses: snok/install-poetry@v1
-        with:
-          version: 1.6.1
-          virtualenvs-in-project: true
+          version: "0.5.13"
+          python-version: 3.9
 
       - name: Configure Git
         run: |
@@ -31,16 +26,17 @@ jobs:
 
       - name: Install dependencies
         run: |
-          poetry install --with dev,release --all-extras
+          uv sync --group dev --group release --all-extras
 
       - name: Set Package Version
         run: |
-          poetry version ${GITHUB_REF#refs/*/}
+          # see https://github.com/astral-sh/uv/issues/6298#issuecomment-2335034247
+          uvx --from=toml-cli toml set --toml-path=pyproject.toml project.version ${GITHUB_REF#refs/*/}
 
       - name: Build package
         run: |
-          poetry build
-          poetry run twine check --strict dist/*
+          uv build
+          uv run twine check --strict dist/*
 
       - name: Publish package
         uses: pypa/gh-action-pypi-publish@release/v1

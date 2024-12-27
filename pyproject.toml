@@ -3,7 +3,7 @@ name = "vistafetch"
 version = "0.0.0"
 description = "Small & simple library to fetch financial data for stocks, ETFs, funds, etc. from Onvista."
 authors = [
-    {name = "bossenti", email= "bossenti@apache.org"},
+    { name = "bossenti", email= "bossenti@apache.org"},
 ]
 license.text = "Apache 2.0"
 readme = "README.md"
@@ -26,7 +26,11 @@ classifiers = [
     "Intended Audience :: Science/Research",
     "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
-    "Topic :: Office/Business :: Financial :: Investment"
+    "Topic :: Office/Business :: Financial :: Investment",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12"
 ]
 
 requires-python = ">=3.9, <3.13"

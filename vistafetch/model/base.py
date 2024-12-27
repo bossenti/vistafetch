@@ -3,7 +3,7 @@
 These are not defined to are used directly but to server for further modelling.
 
 """
-from typing import Any, Dict
+from typing import Any
 
 from pydantic import BaseModel, ConfigDict
 
@@ -65,7 +65,7 @@ class VistaEntity(BaseModel):
         )
 
     @property
-    def extra(self) -> Dict[str, Any]:
+    def extra(self) -> dict[str, Any]:
         """Additional data returned by the API but not covered by this model.
 
         Extra data is exactly as returned by the API,

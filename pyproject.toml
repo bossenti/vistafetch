@@ -42,7 +42,7 @@ include = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.9, <3.14"
+python = ">=3.9, <3.13"
 pydantic = ">=2.0.0"
 requests = ">=2.31.0"
 rich = ">=13.0.0"

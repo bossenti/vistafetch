@@ -25,8 +25,8 @@
 <a href="https://beta.ruff.rs/docs/" target="_blank">
     <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" alt="Linting: Ruff">
 </a>
-<a href="https://python-poetry.org" target="_blank">
-    <img src="https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json" alt="Dependency & Build Management: Poetry">
+<a href="https://github.com/astral-sh/uv" target="_blank">
+    <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json" alt="Dependency & Build Management: uv">
 </a>
 <a href="https://pre-commit.com/" target="_blank">
     <img src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white" alt="pre-commit">

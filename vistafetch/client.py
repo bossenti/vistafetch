@@ -1,5 +1,6 @@
 """Client to fetch Onvista API."""
 import logging
+from typing import Optional
 
 from vistafetch.logs import set_up_logging
 from requests import HTTPError
@@ -26,8 +27,8 @@ class VistaFetchClient:
 
     def __init__(
         self,
-        client_headers: dict[str, str] | None = None,
-        logging_level: int | None = None,
+        client_headers: Optional[dict[str, str]] = None,
+        logging_level: Optional[int] = None,
     ):
         set_up_logging(logging_level=logging_level)
 
@@ -49,7 +50,7 @@ class VistaFetchClient:
     @staticmethod
     def search_asset(
         search_term: str,
-        max_candidates: int | None = 5,
+        max_candidates: Optional[int] = 5,
     ) -> SearchResult:
         """Search for a financial asset.
 

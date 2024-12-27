@@ -1,6 +1,6 @@
 """Client to fetch Onvista API."""
 import logging
-from typing import Dict, Optional
+from typing import Optional
 
 from vistafetch.logs import set_up_logging
 from requests import HTTPError
@@ -27,7 +27,7 @@ class VistaFetchClient:
 
     def __init__(
         self,
-        client_headers: Optional[Dict[str, str]] = None,
+        client_headers: Optional[dict[str, str]] = None,
         logging_level: Optional[int] = None,
     ):
         set_up_logging(logging_level=logging_level)

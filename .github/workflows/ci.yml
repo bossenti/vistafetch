@@ -55,5 +55,4 @@ jobs:
 
             - name: Run unit-tests
               run: |
-                  source $VENV  # see https://github.com/snok/install-poetry#running-on-windows
                   just unit-tests

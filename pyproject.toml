@@ -2,12 +2,11 @@
 name = "vistafetch"
 version = "0.0.0"
 description = "Small & simple library to fetch financial data for stocks, ETFs, funds, etc. from Onvista."
-authors = ["bossenti <bossenti@apache.org>"]
+authors = [
+    {name = "bossenti", email= "bossenti@apache.org"},
+]
 license.text = "Apache 2.0"
 readme = "README.md"
-
-repository = "https://github.com/bossenti/vistafetch"
-documentation = "https://github.com/bossenti/vistafetch#readme"
 
 keywords = [
     "etf",
@@ -28,10 +27,6 @@ classifiers = [
     "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
     "Topic :: Office/Business :: Financial :: Investment"
-]
-
-include = [
-    { path = "vistafetch/py.typed" }
 ]
 
 requires-python = ">=3.9, <3.13"

@@ -27,11 +27,9 @@ jobs:
             refactor
             perf
             test
-            deps
-            (deps)
-            (deps-dev)
             ci
             chore
             revert
           scopes: |
             \#[0-9]+
+            deps

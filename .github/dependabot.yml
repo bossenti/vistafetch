@@ -9,7 +9,7 @@ updates:
     schedule:
       interval: "daily"
     commit-message:
-      prefix: "deps: "
+      prefix: "chore(deps): "
 
   - package-ecosystem: "uv"
     directory: "/"

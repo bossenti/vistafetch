@@ -30,8 +30,7 @@ jobs:
 
       - name: Set Package Version
         run: |
-          # see https://github.com/astral-sh/uv/issues/6298#issuecomment-2335034247
-          uvx --from=toml-cli toml set --toml-path=pyproject.toml project.version ${GITHUB_REF#refs/*/}
+          uv version ${GITHUB_REF#refs/*/}
 
       - name: Build package
         run: |

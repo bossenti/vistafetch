@@ -58,7 +58,7 @@ dev = [
     "types-requests==2.32.4.20250809",
 ]
 release = [
-    "twine==6.1.0",
+    "twine==6.2.0",
 ]
 
 [tool.autoflake]

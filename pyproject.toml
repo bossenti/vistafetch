@@ -5,8 +5,9 @@ description = "Small & simple library to fetch financial data for stocks, ETFs, 
 authors = [
     { name = "bossenti", email= "bossenti@apache.org"},
 ]
-license.text = "Apache 2.0"
 readme = "README.md"
+license = "Apache 2.0"
+license-files = ["LICENSE"]
 
 keywords = [
     "etf",
@@ -24,7 +25,6 @@ classifiers = [
     "Intended Audience :: Developers",
     "Intended Audience :: Financial and Insurance Industry",
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
     "Topic :: Office/Business :: Financial :: Investment",
     "Programming Language :: Python :: 3.9",

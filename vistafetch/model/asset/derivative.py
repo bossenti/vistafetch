@@ -1,4 +1,5 @@
 """Model a derivative."""
+
 import logging
 from typing import Literal
 

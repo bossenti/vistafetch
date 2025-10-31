@@ -1,4 +1,5 @@
 """Configure logging for library."""
+
 import logging
 from typing import Optional
 

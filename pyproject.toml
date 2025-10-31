@@ -5,9 +5,8 @@ description = "Small & simple library to fetch financial data for stocks, ETFs, 
 authors = [
     { name = "bossenti", email= "bossenti@apache.org"},
 ]
-license.text = "Apache 2.0"
 readme = "README.md"
-license = "Apache Software License"
+license = "Apache 2.0"
 license-files = ["LICENSE"]
 
 keywords = [

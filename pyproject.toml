@@ -7,6 +7,8 @@ authors = [
 ]
 license.text = "Apache 2.0"
 readme = "README.md"
+license = "Apache Software License"
+license-files = ["LICENSE"]
 
 keywords = [
     "etf",
@@ -24,7 +26,6 @@ classifiers = [
     "Intended Audience :: Developers",
     "Intended Audience :: Financial and Insurance Industry",
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
     "Topic :: Office/Business :: Financial :: Investment",
     "Programming Language :: Python :: 3.9",

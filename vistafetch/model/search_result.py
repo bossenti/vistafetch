@@ -1,7 +1,7 @@
 """Search result as returned by the API when querying a financial asset."""
 
 from datetime import datetime
-from typing import Annotated, Union
+from typing import Annotated
 
 from pydantic import Field
 from rich.console import Console
@@ -32,7 +32,7 @@ class SearchResult(VistaEntity):
     expires: datetime
     assets: list[
         Annotated[
-            Union[Bond, Derivative, Fund, Index, PreciousMetal, Stock],
+            Bond | Derivative | Fund | Index | PreciousMetal | Stock,
             Field(..., discriminator="entity_type"),
         ]
     ] = Field(alias="list")

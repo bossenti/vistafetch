@@ -4,7 +4,7 @@ import datetime
 import logging
 from abc import ABC
 from functools import cached_property
-from typing import Literal, Optional
+from typing import Literal
 
 from pydantic import Field
 from requests import HTTPError
@@ -72,7 +72,7 @@ class FinancialAsset(VistaEntity, ABC):
     name: str
     tiny_name: str
     wkn: str
-    market: Optional[FinancialAssetMarket] = Field(default=None)
+    market: FinancialAssetMarket | None = Field(default=None)
 
     def __query_day_price_data(self, day: datetime.date) -> PriceData:
         if self._type == FinancialAssetType.UNKNOWN:

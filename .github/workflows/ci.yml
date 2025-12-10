@@ -10,7 +10,7 @@ jobs:
     quality-checks:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v6
+          - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3  # v6
 
             - name: Install uv
               uses: astral-sh/setup-uv@v7
@@ -18,16 +18,16 @@ jobs:
                 version: "0.9.7"
                 python-version: "3.10"
 
-            - name: Install command runner
-              uses: taiki-e/install-action@just
+          - name: Install command runner
+            uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff  # v3
 
-            - name: Install Python dependencies
-              run: |
-                  just install-deps
+          - name: Install Python dependencies
+            run: |
+                just install-deps
 
-            - name: Run style & code checks
-              run: |
-                  just check
+          - name: Run style & code checks
+            run: |
+                just check
 
     unit-tests:
         runs-on: ${{ matrix.os }}
@@ -41,21 +41,21 @@ jobs:
                 shell: bash
 
         steps:
-            - uses: actions/checkout@v6
+          - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3  # v6
 
-            - name: Install uv
-              uses: astral-sh/setup-uv@v7
-              with:
-                version: "0.9.7"
-                python-version: ${{ matrix.python }}
+          - name: Install uv
+            uses: astral-sh/setup-uv@5a7eac68fb9809dea845d802897dc5c723910fa3  # v7.13
+            with:
+              version: "0.9.17"
+              python-version: ${{ matrix.python }}
 
-            - name: Install command runner
-              uses: taiki-e/install-action@just
+          - name: Install command runner
+            uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff  # v3
 
-            - name: Install Python dependencies
-              run: |
-                  just install-deps
+          - name: Install Python dependencies
+            run: |
+                just install-deps
 
-            - name: Run unit-tests
-              run: |
-                  just unit-tests
+          - name: Run unit-tests
+            run: |
+                just unit-tests

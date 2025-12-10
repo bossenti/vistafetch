@@ -3,6 +3,7 @@
 These are not defined to are used directly but to server for further modelling.
 
 """
+
 from typing import Any
 
 from pydantic import BaseModel, ConfigDict

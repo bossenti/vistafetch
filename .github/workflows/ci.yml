@@ -13,10 +13,10 @@ jobs:
           - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3  # v6
 
           - name: Install uv
-            uses: astral-sh/setup-uv@5a7eac68fb9809dea845d802897dc5c723910fa3  # v7.13
+            uses: astral-sh/setup-uv@v7
             with:
-              version: "0.9.17"
-              python-version: 3.9
+              version: "0.9.7"
+              python-version: "3.10"
 
           - name: Install command runner
             uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff  # v3
@@ -34,7 +34,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                python: [3.9, "3.10", "3.11", "3.12", "3.13" ]
+                python: ["3.10", "3.11", "3.12", "3.13", "3.14" ]
                 os: [ ubuntu-latest, macos-latest, windows-latest ]
         defaults:
             run:
@@ -46,7 +46,7 @@ jobs:
           - name: Install uv
             uses: astral-sh/setup-uv@5a7eac68fb9809dea845d802897dc5c723910fa3  # v7.13
             with:
-              version: "0.9.17"
+              version: "0.9.7"
               python-version: ${{ matrix.python }}
 
           - name: Install command runner

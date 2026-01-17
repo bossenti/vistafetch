@@ -1,4 +1,5 @@
 """Model financial information in the context of this library."""
+
 from datetime import datetime
 
 from pydantic import Field, field_validator

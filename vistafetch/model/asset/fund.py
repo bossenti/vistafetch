@@ -1,4 +1,5 @@
 """Model a fund."""
+
 from typing import Literal
 
 from vistafetch.model.asset.financial_asset import FinancialAsset

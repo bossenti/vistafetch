@@ -81,3 +81,6 @@ lint.ignore = [
 "tests/test_client.py" = ["I001"]
 "vistafetch/client.py" = ["I001"]
 "vistafetch/model/asset/__init__.py" = ["I001"]
+
+[tool.uv]
+exclude-newer = "P3D"

@@ -1,4 +1,5 @@
 """Model an index."""
+
 from typing import Literal
 
 from vistafetch.model.asset.financial_asset import FinancialAsset
@@ -17,6 +18,4 @@ class Index(FinancialAsset):
 
     """
 
-    _type = FinancialAssetType.INDEX
-
-    entity_type: Literal[_type.value]  # type: ignore
+    entity_type: Literal[FinancialAssetType.INDEX]  # type: ignore[valid-type]

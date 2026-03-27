@@ -1,9 +1,10 @@
 """Model a financial asset in the context of this library."""
+
 import datetime
 import logging
 from abc import ABC
 from functools import cached_property
-from typing import Literal, Optional
+from typing import Literal
 
 from pydantic import Field
 from requests import HTTPError
@@ -44,7 +45,7 @@ class FinancialAsset(VistaEntity, ABC):
     Please note, that this class is only intended to serve as
     an abstract base class.The concrete financial assets as
     returned by the API still need to be defined. Thereby,
-    it is required to overwrite the attribute `_type` accordingly.
+    it is required to overwrite the attribute `entity_type` accordingly.
 
     Attributes
     ----------
@@ -63,18 +64,16 @@ class FinancialAsset(VistaEntity, ABC):
 
     """
 
-    _type: FinancialAssetType = FinancialAssetType.UNKNOWN
-
     display_type: str
-    entity_type: Literal[_type.value]  # type: ignore
+    entity_type: Literal[FinancialAssetType.UNKNOWN]  # type: ignore[valid-type]
     isin: str
     name: str
     tiny_name: str
     wkn: str
-    market: Optional[FinancialAssetMarket] = Field(default=None)
+    market: FinancialAssetMarket | None = Field(default=None)
 
     def __query_day_price_data(self, day: datetime.date) -> PriceData:
-        if self._type == FinancialAssetType.UNKNOWN:
+        if self.entity_type == FinancialAssetType.UNKNOWN:
             raise NotImplementedError(
                 "`price_data` is called directly on the "
                 "abstract class `Financial Asset`. "
@@ -119,14 +118,14 @@ class FinancialAsset(VistaEntity, ABC):
         )
 
     def __query_latest_price_data(self) -> PriceData:
-        if self._type == FinancialAssetType.UNKNOWN:
+        if self.entity_type == FinancialAssetType.UNKNOWN:
             raise NotImplementedError(
                 "`price_data` is called directly on the "
                 "abstract class `Financial Asset`. "
                 "Please use a valid financial asset class."
             )
         response = api_session.get(
-            f"{ONVISTA_API_BASE_URL}{self._type.value.lower()}s/ISIN:{self.isin}/snapshot"
+            f"{ONVISTA_API_BASE_URL}{self.entity_type.lower()}s/ISIN:{self.isin}/snapshot"
         )
         try:
             response.raise_for_status()

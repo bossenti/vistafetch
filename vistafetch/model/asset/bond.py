@@ -1,4 +1,5 @@
 """Model a bond."""
+
 from typing import Literal
 
 from vistafetch.model.asset.financial_asset import FinancialAsset
@@ -21,6 +22,4 @@ class Bond(FinancialAsset):
 
     """
 
-    _type = FinancialAssetType.BOND
-
-    entity_type: Literal[_type.value]  # type: ignore
+    entity_type: Literal[FinancialAssetType.BOND]  # type: ignore[valid-type]

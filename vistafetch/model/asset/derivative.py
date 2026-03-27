@@ -1,4 +1,5 @@
 """Model a derivative."""
+
 import logging
 from typing import Literal
 
@@ -20,6 +21,4 @@ class Derivative(FinancialAsset):
 
     """
 
-    _type = FinancialAssetType.DERIVATIVE
-
-    entity_type: Literal[_type.value]  # type: ignore
+    entity_type: Literal[FinancialAssetType.DERIVATIVE]  # type: ignore[valid-type]

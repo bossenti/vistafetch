@@ -90,3 +90,6 @@ class SearchResult(VistaEntity):
             table.add_row(str(idx), asset.tiny_name, asset.entity_type, asset.isin)
 
         console.print(table)
+
+
+SearchResult.model_rebuild()

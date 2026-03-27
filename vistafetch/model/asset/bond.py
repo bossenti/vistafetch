@@ -22,6 +22,4 @@ class Bond(FinancialAsset):
 
     """
 
-    _type = FinancialAssetType.BOND
-
-    entity_type: Literal[_type.value]  # type: ignore
+    entity_type: Literal[FinancialAssetType.BOND]  # type: ignore[valid-type]

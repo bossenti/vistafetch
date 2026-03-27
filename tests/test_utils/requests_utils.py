@@ -33,7 +33,7 @@ EXPECTED_PRICE_DATA_DAY = {
 
 def mock_api_call(*args, **kwargs):
     class MockResponse:
-        def __init__(self, status_code: int, json_data: dict | None  = None):
+        def __init__(self, status_code: int, json_data: dict | None = None):
             self.json_data = json_data
             self.status_code = status_code
 

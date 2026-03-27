@@ -19,6 +19,4 @@ class PreciousMetal(FinancialAsset):
 
     """
 
-    _type = FinancialAssetType.METAL
-
-    entity_type: Literal[_type.value]  # type: ignore
+    entity_type: Literal[FinancialAssetType.METAL]  # type: ignore[valid-type]

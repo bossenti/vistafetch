@@ -16,7 +16,7 @@ jobs:
             uses: astral-sh/setup-uv@5a7eac68fb9809dea845d802897dc5c723910fa3  # v7.13
             with:
               version: "0.11.1"
-              python-version: 3.9
+              python-version: 3.14
 
           - name: Install command runner
             uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff  # v3

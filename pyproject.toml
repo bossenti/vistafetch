@@ -6,7 +6,7 @@ authors = [
     { name = "bossenti", email = "bossenti@apache.org" },
 ]
 readme = "README.md"
-license = "Apache 2.0"
+license = "Apache-2.0"
 license-files = ["LICENSE"]
 
 keywords = [

@@ -28,7 +28,7 @@ check: autoflake format mypy
 
 # run pre-commit check
 pre-commit:
-	git ls-files -- 'vistafetch/**/*' | xargs poetry run pre-commit run --verbose --files
+	uv run pre-commit run --verbose --files $(git ls-files -- 'vistafetch/**/*')
 
 # prettify your code (linting & formatting is applied)
 pretty: autoflake ruff format

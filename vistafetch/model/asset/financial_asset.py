@@ -1,4 +1,5 @@
 """Model a financial asset in the context of this library."""
+
 import datetime
 import logging
 from abc import ABC

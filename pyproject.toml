@@ -54,8 +54,8 @@ dev = [
     "pre-commit==4.5.1",
     "pytest-cov==7.1.0",
     "pytest==9.0.2",
-    "ruff==0.15.7",
-    "types-requests==2.32.4.20260107",
+    "ruff==0.15.8",
+    "types-requests==2.33.0.20260327",
 ]
 release = [
     "twine==6.2.0",

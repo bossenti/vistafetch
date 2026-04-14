@@ -53,9 +53,9 @@ dev = [
     "mypy==1.20.0",
     "pre-commit==4.5.1",
     "pytest-cov==7.1.0",
-    "pytest==9.0.2",
-    "ruff==0.15.8",
-    "types-requests==2.33.0.20260327",
+    "pytest==9.0.3",
+    "ruff==0.15.9",
+    "types-requests==2.33.0.20260402",
 ]
 release = [
     "twine==6.2.0",

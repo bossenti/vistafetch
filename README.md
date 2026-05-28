@@ -149,7 +149,7 @@ The following environment variables can be used to configure `vistafetch`:
 
 | Variable | Description | Default |
 |---|---|---|
-| `VISTAFETCH_USER_AGENT` | Overrides the `User-Agent` header sent with every API request. Useful if the default value is blocked or if you want to identify your application. | `vistafetch/1.0` |
+| `VISTAFETCH_USER_AGENT` | Overrides the `User-Agent` header sent with every API request. Useful if the default value is blocked or if you want to identify your application. | `vistafetch` |
 
 **Example:**
 ```bash

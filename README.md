@@ -143,6 +143,19 @@ result = client.search_asset(
 sap_stock = result.get()
 ```
 
+## ⚙️ Configuration
+
+The following environment variables can be used to configure `vistafetch`:
+
+| Variable | Description | Default |
+|---|---|---|
+| `VISTAFETCH_USER_AGENT` | Overrides the `User-Agent` header sent with every API request. Useful if the default value is blocked or if you want to identify your application. | `vistafetch` |
+
+**Example:**
+```bash
+export VISTAFETCH_USER_AGENT="my-app/2.0"
+```
+
 ## 🐛 Facing problems
 Feel free to open an [issue](https://github.com/bossenti/vistafetch/issues/new) if you experience strange behavior or bugs when using `vistafetch`. <br>
 If you are not sure if your problem should be considered a bug or if you have a question in general, reach out via [discussions](https://github.com/bossenti/vistafetch/discussions).

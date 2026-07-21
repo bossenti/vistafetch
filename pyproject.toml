@@ -55,7 +55,7 @@ dev = [
     "pytest-cov==7.1.0",
     "pytest==9.1.1",
     "ruff==0.15.21",
-    "types-requests==2.33.0.20260518",
+    "types-requests==2.33.0.20260712",
 ]
 release = [
     "twine==6.2.0",

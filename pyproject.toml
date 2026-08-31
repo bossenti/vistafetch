@@ -49,7 +49,7 @@ changelog = "https://github.com/bossenti/vistafetch/releases"
 
 [dependency-groups]
 dev = [
-    "autoflake==2.3.3",
+    "autoflake==2.4.0",
     "mypy==2.3.1",
     "pre-commit==4.6.2",
     "pytest-cov==7.1.0",

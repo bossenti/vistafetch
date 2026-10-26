@@ -16,4 +16,6 @@ __all__ = [
 
 
 api_session = Session()
-api_session.headers.update({"User-Agent": os.environ.get("VISTAFETCH_USER_AGENT", "vistafetch")})
+api_session.headers.update(
+    {"User-Agent": os.environ.get("VISTAFETCH_USER_AGENT", "vistafetch")}
+)

@@ -1,6 +1,6 @@
 """Model a financial asset in the context of this library."""
 
-import datetime
+import datetime as dt
 import logging
 from abc import ABC
 from functools import cached_property
@@ -72,7 +72,7 @@ class FinancialAsset(VistaEntity, ABC):
     wkn: str
     market: FinancialAssetMarket | None = Field(default=None)
 
-    def __query_day_price_data(self, day: datetime.date) -> PriceData:
+    def __query_day_price_data(self, day: dt.date) -> PriceData:
         if self.entity_type == FinancialAssetType.UNKNOWN:
             raise NotImplementedError(
                 "`price_data` is called directly on the "
@@ -107,10 +107,10 @@ class FinancialAsset(VistaEntity, ABC):
 
         return PriceData.model_construct(
             currency_symbol=price_raw["isoCurrency"],
-            datetime_high=datetime.datetime.fromtimestamp(price_raw["datetimeLast"][0]),
-            datetime_last=datetime.datetime.fromtimestamp(price_raw["datetimeLast"][0]),
-            datetime_low=datetime.datetime.fromtimestamp(price_raw["datetimeLast"][0]),
-            datetime_open=datetime.datetime.fromtimestamp(price_raw["datetimeLast"][0]),
+            datetime_high=dt.datetime.fromtimestamp(price_raw["datetimeLast"][0]),
+            datetime_last=dt.datetime.fromtimestamp(price_raw["datetimeLast"][0]),
+            datetime_low=dt.datetime.fromtimestamp(price_raw["datetimeLast"][0]),
+            datetime_open=dt.datetime.fromtimestamp(price_raw["datetimeLast"][0]),
             high=price_raw["high"][0],
             last=price_raw["last"][0],
             low=price_raw["low"][0],
@@ -149,7 +149,7 @@ class FinancialAsset(VistaEntity, ABC):
         """Get the price data available for this financial asset."""
         return self.__query_latest_price_data()
 
-    def get_day_price_data(self, day: datetime.date) -> PriceData:
+    def get_day_price_data(self, day: dt.date) -> PriceData:
         """Get the price data for this financial asset for a specific day."""
         # check if market information are available
         # if not we need to make an additional API call
